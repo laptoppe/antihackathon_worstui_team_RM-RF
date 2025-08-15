@@ -2,44 +2,47 @@
 
 <html>
 
-    <script>
-    </script>
-    <!--todo: make solitaire-->
+    <style>
+    </style>
 
     <head>
         <title>buena suerte xd</title>
     </head>
 
-    <body>
+    <script src="app.js"></script>
 
-        <div style="text-align: center" id="solitaire_table">
+    <body style="text-align:center">
 
-            <h1>please logue your in:</h1>
+        <h1>please logue your in:</h1>
 
-            <button type="button">deal letters (please)</button>
-            <br><br>
+        <button type="button" onclick="deal_letters()">deal letters (please)</button>
+        <br><br>
+
+        <div id="solitaire_table">
 
             <label>row 1</label>
-            <input type="text" id="row_1"><br><br>
+            <textarea id="row_1" rows="1" readonly></textarea>
+            <br>
 
             <label>row 2</label>
-            <input type="text" id="row_2"><br><br>
+            <textarea id="row_2" rows="1" readonly></textarea>
+            <br>
 
             <label>row 3</label>
-            <input type="text" id="row_3"><br><br>
+            <textarea id="row_3" rows="1" readonly></textarea>
+            <br>
 
             <label>row 4</label>
-            <input type="text" id="row_4"><br><br>
+            <textarea id="row_4" rows="1" readonly></textarea>
+            <br>
 
             <label>row 5</label>
-            <input type="text" id="row_5"><br><br>
-
-            <!--todo: turn the input boxes into fake boxes-->
-            <!--      and also make them into solitaire-->
-
-            <!--todo: make a recipient box to take letters in-->
+            <textarea id="row_5" rows="1" readonly></textarea>
+            
         </div>
-
+        <!--TODO: Make more buttons to allow for solitaire-like playing-->
+        <!--Maybe add a small "currently holding" box-->
+        <!--to show held letter/letter stack-->
     </body>
 
 </html>
