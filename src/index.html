@@ -15,34 +15,82 @@
 
         <h1>please logue your in:</h1>
 
-        <button type="button" onclick="deal_letters()">deal letters (please)</button>
+        <button onclick="deal_letters()">deal letters (please)</button>
+        <button>shufflé</button>
         <br><br>
 
         <div id="solitaire_table">
 
             <label>row 1</label>
             <textarea id="row_1" rows="1" readonly></textarea>
+            <button onclick="pick(1)">pick</button>
+            <button onclick="set(1)">set</button>
             <br>
 
             <label>row 2</label>
             <textarea id="row_2" rows="1" readonly></textarea>
+            <button onclick="pick(2)">pick</button>
+            <button onclick="set(2)">set</button>
             <br>
 
             <label>row 3</label>
             <textarea id="row_3" rows="1" readonly></textarea>
+            <button onclick="pick(3)">pick</button>
+            <button onclick="set(3)">set</button>
             <br>
 
             <label>row 4</label>
             <textarea id="row_4" rows="1" readonly></textarea>
+            <button onclick="pick(4)">pick</button>
+            <button onclick="set(4)">set</button>
             <br>
 
             <label>row 5</label>
             <textarea id="row_5" rows="1" readonly></textarea>
-            
+            <button onclick="pick(5)">pick</button>
+            <button onclick="set(5)">set</button>
+            <br><br>
+
+            <label>your hand</label>
+            <textarea id="hand" rows="1" cols="5" readonly></textarea>
+            <br>
+
+            <label>your username here</label>
+            <textarea id="row_6" rows="1" readonly></textarea>
+            <button onclick="pick(6)">pick</button>
+            <button onclick="set(6)">set</button>   
+            <br>
+            <button>send</button>
         </div>
-        <!--TODO: Make more buttons to allow for solitaire-like playing-->
-        <!--Maybe add a small "currently holding" box-->
-        <!--to show held letter/letter stack-->
+
+        <h3>HOW TO PLAY:</h3>
+        <p>
+            Click DEAL LETTERS to send LETTERS to ROWS.<br><br>
+
+            Click PICK next to ROW to take rightmost LETTER into HAND.<br>
+            Click PICK many time on same ROW to take MORE LETTER but only if VALID STACK<br><br>
+
+            Click SET next to ROW to place LETTER from HAND but only if VALID STACK.<br><br>
+
+            USERNAME FIELD does not follow STACK RULE.<br>
+            Click SEND to submit USERNAME.
+        </p>
+
+        <h3>STACK RULE:</h3>
+        <p>
+            STACK is important rule.<br>
+            STACK is string of LETTER.<br>
+            STACK is VALID if all LETTER in STACK follow STACK ORDER.<br>
+            STACK ORDER is as follows:<br><br>
+
+            [left] (0123...9) > (ABCD...Z) > (abcd...z) [right]<br><br>
+
+            SETting LETTER from HAND to ROW only requires that RIGHT LETTER of ROW and LEFT LETTER of HAND STACK be VALID STACK.<br>
+            If RIGHT LETTER of ROW and LEFT LETTER of HAND is not VALID STACK, cannot SET.<br>
+            ROW does not need to be VALID STACK. DEAL LETTERS does not necessarily make VALID STACK<br>
+            HAND can only hold VALID STACK. HAND does not accept LETTER out of ORDER.<br><br>
+        </p>
+
     </body>
 
 </html>
