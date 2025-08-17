@@ -6,8 +6,16 @@ function pick_random(int) {
 // Based on example from www.w3schools.com js tutorials
 
 function pick_letter() {
+
     console.log("Picked random letter from pool.");
-    return letter_pool[pick_random(letter_pool.length)];
+    if (letter_pool.length == 0) {
+        console.log(`Pool has no letters.`);
+        return "";
+    }
+    
+    let index = pick_random(letter_pool.length);
+    console.log(`Pool has changed. New pool is ${letter_pool}.`);
+    return letter_pool.splice(index, 1)[0];
 }
 
 function deal_letters() {
