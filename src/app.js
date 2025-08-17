@@ -1,4 +1,10 @@
 const letter_pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
+let letter_quantity = 21
+
+function update_counter() {
+    console.log(`Attempted to update card counter.`);
+    document.getElementById(`card_counter`).innerHTML = `In Pool: ${letter_quantity}`;
+}
 
 function pick_random(int) {
     return Math.floor(Math.random() * (int));
@@ -7,15 +13,16 @@ function pick_random(int) {
 
 function pick_letter() {
 
-    console.log("Picked random letter from pool.");
-    if (letter_pool.length == 0) {
+    console.log("Picking random letter from pool.");
+    if (letter_quantity == 0) {
         console.log(`Pool has no letters.`);
         return "";
     }
-    
+
     let index = pick_random(letter_pool.length);
-    console.log(`Pool has changed. New pool is ${letter_pool}.`);
-    return letter_pool.splice(index, 1)[0];
+    console.log(`Random letter "${letter_pool[index]}" picked.`);
+    letter_quantity -= 1;
+    return letter_pool[index];
 }
 
 function deal_letters() {
@@ -23,6 +30,7 @@ function deal_letters() {
         document.getElementById(`row_${i+1}`).innerHTML += pick_letter();
         console.log(`Attempted to write to row ${i+1}.`);
     }
+    update_counter();
 }
 
 function stack_rule(stack) { 
@@ -75,6 +83,19 @@ function set(r) {
 
     console.log(`set(${r}) command successful`);
     document.getElementById(`row_${r}`).innerHTML += hand;
+    document.getElementById(`hand`).innerHTML = "";
+    return true;
+}
+
+function recycle() {
+    let hand_stack = document.getElementById(`hand`).innerHTML.length;
+    if (hand_stack < 5) {
+        console.log(`Hand stack (${hand_stack}) is not long enough.`);
+        return false;
+    }
+    console.log(`Attempted to recycle ${hand_stack} letters.`);
+    letter_quantity += hand_stack;
+    update_counter();
     document.getElementById(`hand`).innerHTML = "";
     return true;
 }

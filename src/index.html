@@ -11,15 +11,16 @@
 
     <script src="app.js"></script>
 
-    <body style="text-align:center">
+    <body style="text-align:center" onload="update_counter()">
 
         <h1>please logue your in:</h1>
 
-        <button onclick="deal_letters()">deal letters (please)</button>
-        <button>shufflé</button>
-        <br><br>
-
         <div id="solitaire_table">
+
+            <label id="card_counter">BUG!</label>
+            <button onclick="deal_letters()">deal letters (please)</button>
+            <button onclick="recycle()">recycle hand (only 5 stack and up)</button>
+            <br><br>
 
             <label>row 1</label>
             <textarea id="row_1" rows="1" readonly></textarea>
@@ -62,13 +63,15 @@
             <br>
             <button>send</button>
         </div>
+        <!--TODO: Update layout to a limited width div, then set align to RIGHT.-->
+        <!--It'll look nicer if i am to involve dynamic elements.-->
 
         <h3>HOW TO PLAY:</h3>
         <p>
             Click DEAL LETTERS to send LETTERS to ROWS.<br><br>
 
-            Click PICK next to ROW to take rightmost LETTER into HAND.<br>
-            Click PICK many time on same ROW to take MORE LETTER but only if VALID STACK<br><br>
+            Click PICK next to ROW to take rightmost LETTER into HAND if new HAND is VALID STACK.<br>
+            (STACK of 1 letter is always VALID STACK)<br><br>
 
             Click SET next to ROW to place LETTER from HAND but only if VALID STACK.<br><br>
 
