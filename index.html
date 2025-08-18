@@ -3,96 +3,148 @@
 <html>
 
     <style>
+
+    body {
+        background-color: seagreen;
+        color: white;
+        text-shadow: 2px 2px 3px darkslategrey;
+    }
+
+    .page_container {
+        display: flex;
+    }
+
+    .table {
+        background-color: mediumseagreen;
+        padding: 20px 20px 20px 20px;
+        margin: 10px 10px 10px 10px;
+        width:500px;
+    }
+
+    .playing_row {
+        display:flex;
+        align-items: center;
+    }
+
+    .playing_row > *{
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    #solitaire_game {
+        float: left;
+        margin-right: 5px;
+    }
+
     </style>
 
     <head>
-        <title>buena suerte xd</title>
+        <title>Club de Solitario</title>
     </head>
 
     <script src="app.js"></script>
 
-    <body style="text-align:center" onload="update_counter()">
+    <body onload="update_counter()">
 
-        <h1>please logue your in:</h1>
+    <h1>Registro de nombres Club de Solitario</h1>
 
-        <div id="solitaire_table">
+    <div class="page_container">
+
+        <div id="solitaire_table" class="table">
 
             <label id="card_counter">BUG!</label>
-            <button onclick="deal_letters()">deal letters (please)</button>
-            <button onclick="recycle()">recycle hand (only 5 stack and up)</button>
+            <button onclick="deal_letters()">Repartir Letras</button>
+            <button onclick="recycle()">Reciclar Mano (Mínimo 4 letras!)</button>
             <br><br>
 
-            <label>row 1</label>
-            <textarea id="row_1" rows="1" readonly></textarea>
-            <button onclick="pick(1)">pick</button>
-            <button onclick="set(1)">set</button>
-            <br>
+            <div id="solitaire_game">
+                <div class="playing_row">
+                    <label>Fila 1</label>
+                    <textarea id="row_1" rows="1" readonly></textarea>
+                    <button onclick="pick(1)">Recoger</button>
+                    <button onclick="set(1)">Colocar</button>
+                    <br>
+                </div>
 
-            <label>row 2</label>
-            <textarea id="row_2" rows="1" readonly></textarea>
-            <button onclick="pick(2)">pick</button>
-            <button onclick="set(2)">set</button>
-            <br>
+                <div class="playing_row">
+                    <label>Fila 2</label>
+                    <textarea id="row_2" rows="1" readonly></textarea>
+                    <button onclick="pick(2)">Recoger</button>
+                    <button onclick="set(2)">Colocar</button>
+                    <br>
+                </div>
 
-            <label>row 3</label>
-            <textarea id="row_3" rows="1" readonly></textarea>
-            <button onclick="pick(3)">pick</button>
-            <button onclick="set(3)">set</button>
-            <br>
+                <div class="playing_row">
+                    <label>Fila 3</label>
+                    <textarea id="row_3" rows="1" readonly></textarea>
+                    <button onclick="pick(3)">Recoger</button>
+                    <button onclick="set(3)">Colocar</button>
+                    <br>
+                </div>
 
-            <label>row 4</label>
-            <textarea id="row_4" rows="1" readonly></textarea>
-            <button onclick="pick(4)">pick</button>
-            <button onclick="set(4)">set</button>
-            <br>
+                <div class="playing_row">
+                    <label>Fila 4</label>
+                    <textarea id="row_4" rows="1" readonly></textarea>
+                    <button onclick="pick(4)">Recoger</button>
+                    <button onclick="set(4)">Colocar</button>
+                    <br>
+                </div>
 
-            <label>row 5</label>
-            <textarea id="row_5" rows="1" readonly></textarea>
-            <button onclick="pick(5)">pick</button>
-            <button onclick="set(5)">set</button>
-            <br><br>
+                <div class="playing_row">
+                    <label>Fila 5</label>
+                    <textarea id="row_5" rows="1" readonly></textarea>
+                    <button onclick="pick(5)">Recoger</button>
+                    <button onclick="set(5)">Colocar</button>
+                    <br>
+                </div>
 
-            <label>your hand</label>
-            <textarea id="hand" rows="1" cols="5" readonly></textarea>
-            <br>
+                <div class="playing_row">
+                    <label>Nombre</label>
+                    <textarea id="row_6" rows="1" readonly></textarea>
+                    <button onclick="pick(6)">Recoger</button>
+                    <button onclick="set(6)">Colocar</button>
+                    <br>
+                </div>
+                    <button>Enviar</button>
+            </div>
 
-            <label>your username here</label>
-            <textarea id="row_6" rows="1" readonly></textarea>
-            <button onclick="pick(6)">pick</button>
-            <button onclick="set(6)">set</button>   
-            <br>
-            <button>send</button>
+            <div id="hand_handler">
+                <label> <- </label>
+                <textarea id="hand" rows="1" cols="5" readonly></textarea>
+            </div>
+
         </div>
-        <!--TODO: Update layout to a limited width div, then set align to RIGHT.-->
-        <!--It'll look nicer if i am to involve dynamic elements.-->
 
-        <h3>HOW TO PLAY:</h3>
-        <p>
-            Click DEAL LETTERS to send LETTERS to ROWS.<br><br>
+        <div id="rulebook" class="table">
+            <h3>HOW TO PLAY:</h3>
+            <p>
+                Click DEAL LETTERS to send LETTERS to ROWS.<br><br>
 
-            Click PICK next to ROW to take rightmost LETTER into HAND if new HAND is VALID STACK.<br>
-            (STACK of 1 letter is always VALID STACK)<br><br>
+                Click PICK next to ROW to take rightmost LETTER into HAND if new HAND is VALID STACK.<br>
+                (STACK of 1 letter is always VALID STACK)<br><br>
 
-            Click SET next to ROW to place LETTER from HAND but only if VALID STACK.<br><br>
+                Click SET next to ROW to place LETTER from HAND but only if VALID STACK.<br><br>
 
-            USERNAME FIELD does not follow STACK RULE.<br>
-            Click SEND to submit USERNAME.
-        </p>
+                USERNAME FIELD does not follow STACK RULE.<br>
+                Click SEND to submit USERNAME.
+            </p>
 
-        <h3>STACK RULE:</h3>
-        <p>
-            STACK is important rule.<br>
-            STACK is string of LETTER.<br>
-            STACK is VALID if all LETTER in STACK follow STACK ORDER.<br>
-            STACK ORDER is as follows:<br><br>
+            <h3>STACK RULE:</h3>
+            <p>
+                STACK is important rule.<br>
+                STACK is string of LETTER.<br>
+                STACK is VALID if all LETTER in STACK follow STACK ORDER.<br>
+                STACK ORDER is as follows:<br><br>
 
-            [left] (0123...9) > (ABCD...Z) > (abcd...z) [right]<br><br>
+                [left] (0123...9) > (ABCD...Z) > (abcd...z) [right]<br><br>
 
-            SETting LETTER from HAND to ROW only requires that RIGHT LETTER of ROW and LEFT LETTER of HAND STACK be VALID STACK.<br>
-            If RIGHT LETTER of ROW and LEFT LETTER of HAND is not VALID STACK, cannot SET.<br>
-            ROW does not need to be VALID STACK. DEAL LETTERS does not necessarily make VALID STACK<br>
-            HAND can only hold VALID STACK. HAND does not accept LETTER out of ORDER.<br><br>
-        </p>
+                SETting LETTER from HAND to ROW only requires that RIGHT LETTER of ROW and LEFT LETTER of HAND STACK be VALID STACK.<br>
+                If RIGHT LETTER of ROW and LEFT LETTER of HAND is not VALID STACK, cannot SET.<br>
+                ROW does not need to be VALID STACK. DEAL LETTERS does not necessarily make VALID STACK<br>
+                HAND can only hold VALID STACK. HAND does not accept LETTER out of ORDER.<br><br>
+            </p>
+        </div>
+    </div>
 
     </body>
 
