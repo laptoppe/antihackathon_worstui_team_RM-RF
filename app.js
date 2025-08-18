@@ -1,9 +1,10 @@
 const letter_pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
-let letter_quantity = 21
+const default_letter_quantity = 21
+let letter_quantity = default_letter_quantity
 
 function update_counter() {
     console.log(`Attempted to update card counter.`);
-    document.getElementById(`card_counter`).innerHTML = `In Pool: ${letter_quantity}`;
+    document.getElementById(`card_counter`).innerHTML = `Disponible: ${letter_quantity}`;
 }
 
 function pick_random(int) {
@@ -89,7 +90,7 @@ function set(r) {
 
 function recycle() {
     let hand_stack = document.getElementById(`hand`).innerHTML.length;
-    if (hand_stack < 5) {
+    if (hand_stack < 4) {
         console.log(`Hand stack (${hand_stack}) is not long enough.`);
         return false;
     }
@@ -97,5 +98,21 @@ function recycle() {
     letter_quantity += hand_stack;
     update_counter();
     document.getElementById(`hand`).innerHTML = "";
-    return true;
+    return trdocument.getElementById(`row_${i+1}`).innerHTML += pick_letter();ue;
+}
+
+function clean_notif() {
+    document.getElementById(`submit_notif`).innerHTML = "";
+}
+
+function submit() {
+    for (let i = 0; i < 6; i++) {
+        document.getElementById(`row_${i+1}`).innerHTML = "";
+    }
+    document.getElementById(`hand`).inerHTML = "";
+    letter_quantity = default_letter_quantity;
+    update_counter();
+    document.getElementById(`submit_notif`).innerHTML = `Nombre enviado!`;
+    setTimeout(clean_notif, 3000);
+
 }

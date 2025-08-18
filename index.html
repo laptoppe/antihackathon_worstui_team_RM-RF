@@ -98,6 +98,7 @@
                     <br>
                 </div>
 
+                    <br>
                 <div class="playing_row">
                     <label>Nombre</label>
                     <textarea id="row_6" rows="1" readonly></textarea>
@@ -105,10 +106,11 @@
                     <button onclick="set(6)">Colocar</button>
                     <br>
                 </div>
-                    <button>Enviar</button>
+                    <button onclick="submit()">Enviar</button>
+                    <label id="submit_notif">
             </div>
 
-            <div id="hand_handler">
+            <div id="hand_handler" class="playing_row">
                 <label> <- </label>
                 <textarea id="hand" rows="1" cols="5" readonly></textarea>
             </div>
@@ -116,33 +118,25 @@
         </div>
 
         <div id="rulebook" class="table">
-            <h3>HOW TO PLAY:</h3>
+            <h3>COMO INGRESAR:</h3>
             <p>
-                Click DEAL LETTERS to send LETTERS to ROWS.<br><br>
+                ¡Nuestro sistema de registro esta diseñado para asemejarse a sus juegos de cartas individuales favoritos!<br><br>
 
-                Click PICK next to ROW to take rightmost LETTER into HAND if new HAND is VALID STACK.<br>
-                (STACK of 1 letter is always VALID STACK)<br><br>
+                Haz clic en "Repartir Letras" para comenzar el registro. Esto repartirá letras a las filas ennumeradas.<br><br>
 
-                Click SET next to ROW to place LETTER from HAND but only if VALID STACK.<br><br>
+                Para mover letras entre filas, haz clic en "Recoger" junto a la fila de la que quieres tomar letras. La letra aparecerá en tu mano, la caja que se encuentra al lado de las filas de juego, moviendose desde la derecha de la fila a la izquierda de tu mano.<br><br>
 
-                USERNAME FIELD does not follow STACK RULE.<br>
-                Click SEND to submit USERNAME.
+                Puedes recoger más de una letra a la vez, pero solo si se encuentran en órden alfabético (Tal que las MAYÚSCULAS se encuentren antes que las minúsculas).<br><br>
+
+                Si deseas colocar letras desde tu mano a una de las filas, simplemente haz clic en "Colocar" al lado de la fila en la que las quieres dejar. Las filas funcionan como el solitaro; Puedes dejar tus letras siempre y tanto que la primera letra de tu mano venga después que la última letra en la fila alfabéticamente. (No te preocupes por la fila "Nombre", en esta puedes colocar letras en cualquier orden.) <br><br>
+
+                Si te hacen falta letras en el tablero para completar tu nombre, puedes cambiar las letras que tienes en la mano por letras nuevas presionando "Reciclar Mano". Sin embargo, como indica el botón, solo podrás reciclar tus letras si tienes por lo menos 4 de ellas en tu mano. ¡Recuerda que solo puedes sostener montónes de letras ordenados alfabéticamente! <br><br>
+
+                Una vez estés feliz con lo que haya en la fila "Nombre", haz clic en "Enviar" para enviarlo al registro.<br><br>
+
+                (Tip: ¡Usa la fila nombre a tu favor! Siempre puedes recoger letras que no necesites desde esta luego.)
             </p>
 
-            <h3>STACK RULE:</h3>
-            <p>
-                STACK is important rule.<br>
-                STACK is string of LETTER.<br>
-                STACK is VALID if all LETTER in STACK follow STACK ORDER.<br>
-                STACK ORDER is as follows:<br><br>
-
-                [left] (0123...9) > (ABCD...Z) > (abcd...z) [right]<br><br>
-
-                SETting LETTER from HAND to ROW only requires that RIGHT LETTER of ROW and LEFT LETTER of HAND STACK be VALID STACK.<br>
-                If RIGHT LETTER of ROW and LEFT LETTER of HAND is not VALID STACK, cannot SET.<br>
-                ROW does not need to be VALID STACK. DEAL LETTERS does not necessarily make VALID STACK<br>
-                HAND can only hold VALID STACK. HAND does not accept LETTER out of ORDER.<br><br>
-            </p>
         </div>
     </div>
 
